@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <title>Mentify | Mental Health Companion</title>
+</head>
+
+<body>
+  <!-- Login Overlay -->
+  <div id="login-screen" class="login-screen">
+    <div class="login-card">
+      <h1>Welcome to Mentify</h1>
+      <p>Your personal safe space.</p>
+      <input type="text" id="username-input" placeholder="What should I call you?" autocomplete="off">
+      <button id="login-btn">Begin Journey</button>
+    </div>
+  </div>
+
+  <div id="app" class="hidden">
+    <header class="app-header">
+      <div class="header-left">
+        <h1>Mentify</h1>
+        <p>Your companion for conversation & relaxation</p>
+      </div>
+      <div class="header-right">
+        <button id="theme-toggle" aria-label="Toggle Theme">
+          <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="2" />
+            <path d="M12 2V4" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            <path d="M12 20V22" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            <path d="M4.93 4.93L6.34 6.34" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            <path d="M17.66 17.66L19.07 19.07" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            <path d="M2 12H4" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            <path d="M20 12H22" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            <path d="M4.93 19.07L6.34 17.66" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            <path d="M17.66 6.34L19.07 4.93" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+          </svg>
+          <svg class="moon-icon hidden" width="20" height="20" viewBox="0 0 24 24" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z" stroke="currentColor" stroke-width="2"
+              stroke-linejoin="round" />
+          </svg>
+        </button>
+        <button id="logout-btn" aria-label="Logout" class="icon-btn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M9 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H9"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M16 17L21 12L16 7" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round" />
+            <path d="M21 12H9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <main class="chat-container">
+      <div id="chat-history" class="chat-history">
+        <!-- Messages will appear here -->
+      </div>
+    </main>
+
+    <footer class="input-area">
+      <div class="input-wrapper">
+        <input type="text" id="user-input" placeholder="Type your feelings here..." autocomplete="off">
+        <button id="send-btn" aria-label="Send message">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M22 2L11 13" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round" />
+            <path d="M22 2L15 22L11 13L2 9L22 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </button>
+      </div>
+      <div class="footer-buttons">
+        <button id="relax-btn" class="secondary-btn">Relaxation 🌿</button>
+        <button id="journal-btn" class="secondary-btn">My Journal 📓</button>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Modal for Relaxation Tips -->
+  <div id="relaxation-modal" class="modal hidden">
+    <div class="modal-content">
+      <span class="close-modal">&times;</span>
+      <h2>Relaxation Techniques</h2>
+      <div class="tips-list">
+        <div class="tip-card">
+          <h3>4-7-8 Breathing</h3>
+          <p>Inhale for 4s, hold for 7s, exhale for 8s. Repeat 4 times.</p>
+        </div>
+        <div class="tip-card">
+          <h3>Grounding (5-4-3-2-1)</h3>
+          <p>Ackowledge 5 things you see, 4 you feel, 3 you hear, 2 you smell, 1 you taste.</p>
+        </div>
+        <div class="tip-card">
+          <h3>Progressive Muscle Relaxation</h3>
+          <p>Tense and then relax each muscle group, starting from your toes up to your head.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal for Journal -->
+  <div id="journal-modal" class="modal hidden">
+    <div class="modal-content journal-content">
+      <span class="close-journal">&times;</span>
+      <h2>My Journal</h2>
+      <div class="journal-input-area">
+        <textarea id="journal-entry" placeholder="Write your thoughts here..."></textarea>
+        <button id="save-journal-btn" class="primary-btn">Save Entry</button>
+      </div>
+      <div id="journal-list" class="journal-list">
+        <!-- Journal entries will go here -->
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>
