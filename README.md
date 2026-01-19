@@ -14,10 +14,11 @@ A safe, AI-driven chatbot designed to support mental well-being using sentiment 
     npm install
 4.  Start the app:
     npm run dev
-5.  Click the link in the terminal (usually `http://localhost:5173`) to open Serenity.
+5.  Click the link in the terminal.
 
  Tech Stack
 -   Vite: Fast development server.
 -   Vanilla JS: Lightweight logic.
 -   Sentiment.js: Local mood analysis (no API keys required).
 -   CSS: Custom Glassmorphism design.
+
